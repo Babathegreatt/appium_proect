@@ -11,7 +11,8 @@ class AppiumConfig:
         des_cap = {
             "platformName": "android",
             "deviceName": "oneplus",
-            "app": r"C:\Components\khan-academy-7-3-2.apk",
+            "appPackage":"org.khanacademy.android",
+            "appActivity":"org.khanacademy.android.ui.library.MainActivity",
             "udid":"emulator-5554"
         }
 
@@ -26,8 +27,11 @@ class TestAndroidDeviceLocal(AppiumConfig):
         self.driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[@text='Dismiss']").click()
         self.driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[@text='Sign in']").click()
         self.driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[@text='Sign in']").click()
-        self.driver.find_element(AppiumBy.XPATH, "//android.widget.EditText[@content-desc='Enter an e-mail address or username']").send_keys("dina")
-        self.driver.find_element(AppiumBy.XPATH, "//android.widget.EditText[contains(@content-desc,'Pass')]").send_keys( "dina123")
+        self.driver.find_element(AppiumBy.XPATH,
+                            "//android.widget.EditText[@content-desc='Enter an e-mail address or username']").send_keys(
+            "dina")
+        self.driver.find_element(AppiumBy.XPATH, "//android.widget.EditText[contains(@content-desc,'Pass')]").send_keys(
+            "dina123")
         # click on sign in
         self.driver.find_element(AppiumBy.XPATH, "(//android.widget.TextView[@text='Sign in'])[2]").click()
         # get the text "There was an issue signing in" and print it
@@ -53,4 +57,3 @@ class TestAndroidDeviceLocal(AppiumConfig):
 #   #send email as test123
 #   #click on create
 #   #assert the error message of mail id
-

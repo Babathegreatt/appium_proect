@@ -23,6 +23,7 @@ driver = webdriver.Remote(command_executor="http://hub.browserstack.com/wd/hub",
 driver.implicitly_wait(30)
 
 driver.find_element(AppiumBy.XPATH,"//android.widget.TextView[@text='Dismiss']").click()
+
 print(driver.page_source)
 
 time.sleep(4)
